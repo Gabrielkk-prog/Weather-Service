@@ -10,6 +10,7 @@ class LocationService {
       throw Exception('O serviço de localização está desabilitado.');
     }
 
+
     // Verifica as permissões de localização
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {

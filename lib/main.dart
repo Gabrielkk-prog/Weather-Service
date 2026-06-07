@@ -21,9 +21,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       home: const WeatherScreen(),
       debugShowCheckedModeBanner: false,
-          ),
-        ),
-      ),
-    );
+          );
   }
 }

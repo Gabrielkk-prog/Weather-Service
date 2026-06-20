@@ -6,10 +6,10 @@ class AnimatedWeatherIcon extends StatefulWidget {
   final double size;
 
   const AnimatedWeatherIcon({
-    Key? key,
+    super.key,
     required this.mainWeather,
     this.size = 80.0,
-  }) : super(key: key);
+  });
 
   @override
   State<AnimatedWeatherIcon> createState() => _AnimatedWeatherIconState();
@@ -127,13 +127,13 @@ class WeatherCard extends StatelessWidget {
   final Color? iconColor;
 
   const WeatherCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.unit,
     required this.icon,
     this.iconColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -199,12 +199,12 @@ class MainTemperatureCard extends StatefulWidget {
   final String mainWeather;
 
   const MainTemperatureCard({
-    Key? key,
+    super.key,
     required this.cityName,
     required this.temperature,
     required this.description,
     required this.mainWeather,
-  }) : super(key: key);
+  });
 
   @override
   State<MainTemperatureCard> createState() => _MainTemperatureCardState();

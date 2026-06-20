@@ -30,6 +30,12 @@ class WeatherData {
   final String cityName;
   final String description;
   final double temperature;
+  final double feelsLike;
+  final int humidity;
+  final double windSpeed;
+  final int pressure;
+  final int visibility;
+  final String mainWeather;
   final double latitude;
   final double longitude;
 
@@ -37,6 +43,12 @@ class WeatherData {
     required this.cityName,
     required this.description,
     required this.temperature,
+    required this.feelsLike,
+    required this.humidity,
+    required this.windSpeed,
+    required this.pressure,
+    required this.visibility,
+    required this.mainWeather,
     required this.latitude,
     required this.longitude,
   });
@@ -59,12 +71,26 @@ class WeatherService {
     final String description = (json['weather'] as List<dynamic>).isNotEmpty
         ? json['weather'][0]['description'].toString()
         : 'Sem descrição';
+    final String mainWeather = (json['weather'] as List<dynamic>).isNotEmpty
+        ? json['weather'][0]['main'].toString()
+        : 'Unknown';
     final double temperature = (json['main']?['temp'] as num?)?.toDouble() ?? 0.0;
+    final double feelsLike = (json['main']?['feels_like'] as num?)?.toDouble() ?? 0.0;
+    final int humidity = (json['main']?['humidity'] as num?)?.toInt() ?? 0;
+    final double windSpeed = (json['wind']?['speed'] as num?)?.toDouble() ?? 0.0;
+    final int pressure = (json['main']?['pressure'] as num?)?.toInt() ?? 0;
+    final int visibility = (json['visibility'] as num?)?.toInt() ?? 0;
 
     return WeatherData(
       cityName: cityName,
       description: description,
       temperature: temperature,
+      feelsLike: feelsLike,
+      humidity: humidity,
+      windSpeed: windSpeed,
+      pressure: pressure,
+      visibility: visibility,
+      mainWeather: mainWeather,
       latitude: latitude,
       longitude: longitude,
     );
